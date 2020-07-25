@@ -179,21 +179,21 @@ With your list of user segments and the information barrier policies you want to
 
 ### Scenario 1: Block communications between segments
 
-When you want to block segments from communicating with each other, you define two policies: one for each direction. Each policy blocks communication one way only.
+When you want to block segments from communicating with each other, you define two policies: one for each direction. Each policy blocks communication one way only. 
 
-For example, suppose you want to block communications between Segment A and Segment B. In this case, you define one policy preventing Segment A from communicating with Segment B, and then define a second policy to prevent Segment B from communicating with Segment A.
+For example, suppose you want to block communications between Segment A and Segment B. In this case, you define one policy preventing Segment A from communicating with Segment B, and then define a second policy to prevent Segment B from communicating with Segment A. Creating only one-way Information Barrier restriction is now supported.
 
 1. To define your first blocking policy, use the **New-InformationBarrierPolicy** cmdlet with the **SegmentsBlocked** parameter. 
 
     |Syntax  |Example  |
     |---------|---------|
-    |`New-InformationBarrierPolicy -Name "policyname" -AssignedSegment "segment1name" -SegmentsBlocked "segment2name"`     |`New-InformationBarrierPolicy -Name "Sales-Research" -AssignedSegment "Sales" -SegmentsBlocked "Research" -State Inactive` <p>    In this example, we defined a policy called *Sales-Research* for a segment called *Sales*. When active and applied, this policy prevents people in *Sales* from communicating with people in a segment called *Research*.         |
+    |`New-InformationBarrierPolicy -Name "policyname" -AssignedSegment "segment1name" -SegmentsBlocked "segment2name"`     |`New-InformationBarrierPolicy -Name "Sales-Research" -AssignedSegment "Sales" -SegmentsBlocked "Research" -State Inactive` <p>    In this example, we defined a policy called *Sales-Research* for a segment called *Sales* to prevent people in *Sales* from communicating with people in a segment called *Research*.         |
 
 2. To define your second blocking segment, use the **New-InformationBarrierPolicy** cmdlet with the **SegmentsBlocked** parameter again, this time with the segments reversed.
 
     |Example  |
     |---------|
-    |`New-InformationBarrierPolicy -Name "Research-Sales" -AssignedSegment "Research" -SegmentsBlocked "Sales" -State Inactive` <p>    In this example, we defined a policy called *Research-Sales* to prevent *Research* from communicating with *Sales*.     |
+    |`New-InformationBarrierPolicy -Name "Research-Sales" -AssignedSegment "Research" -SegmentsBlocked "Sales" -State Inactive` <p>    In this example, we defined a policy called *Research-Sales* to prevent people in *Research* from communicating with people in a segment called *Sales*.     |
 
 2. Proceed to one of the following:
 
